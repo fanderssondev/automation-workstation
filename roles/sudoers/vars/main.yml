@@ -4,4 +4,4 @@ sudoers_username:
     cron_job:
       name: ansible provision
       minute: "*/10"
-      job: /usr/bin/ansible-pull -o -U https://github.com/fanderssondev/automation-workstation.git
+      job: /usr/bin/ansible-pull -o -U https://github.com/fanderssondev/automation-workstation.git > /dev/null

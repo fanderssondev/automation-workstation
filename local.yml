@@ -4,12 +4,12 @@
   connection: localhost
   become: true
 
-  pre_tasks:
-    - name: Update repositories
-      when: ansible_os_family == "Debian"
-      ansible.builtin.apt:
-        update_cache: true
-      changed_when: false
+  # pre_tasks:
+  #   - name: Update repositories
+  #     when: ansible_os_family == "Debian"
+  #     ansible.builtin.apt:
+  #       update_cache: true
+  #     changed_when: false
 
   tasks:
     # - name: Include base role
