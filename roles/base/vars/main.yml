@@ -1,51 +1,37 @@
 base_packages:
   - name: git
-    repository:
   - name: code
     key:
       url: https://packages.microsoft.com/keys/microsoft.asc
-      state: present
     repository:
-      repo: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main
+      repo: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
       state: present
       filename: vscode
   - name: fzf
-    key:
-      url:
-    repository:
   - name: wmctrl
-    key:
-      url:
-    repository:
   - name: python3
-    key:
-      url:
-    repository:
   - name: brave-browser
     key:
-      url:
+      url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     repository:
-  - name: google-chrome
+      repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+      state: present
+      filename: brave-browser
+  - name: google-chrome-stable
     key:
-      url:
+      url: https://dl.google.com/linux/linux_signing_key.pub
     repository:
+      repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+      state: present
+      filename: google-chrome
   - name: flameshot
-    key:
-      url:
-    repository:
   - name: htop
-    key:
-      url:
-    repository:
   - name: tmux
-    key:
-      url:
-    repository:
   - name: npm
     key:
-      url:
+      url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     repository:
+      repo: deb [arch=amd64] https://deb.nodesource.com/node_20.x nodistro main
+      state: present
+      filename: nodesource
   - name: xdotool
-    key:
-      url:
-    repository:
