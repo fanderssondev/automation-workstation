@@ -1,4 +1,5 @@
-base_packages:
+---
+packages_packages:
   - name: git
   - name: code
     key:

@@ -15,3 +15,7 @@
     - name: Include base role
       ansible.builtin.include_role:
         name: base
+
+    - name: Include user role
+      ansible.builtin.include_role:
+        name: base

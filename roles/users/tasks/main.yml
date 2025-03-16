@@ -1,0 +1,15 @@
+---
+- name: Create ansible user
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    system: "{{ item.system | default(omit) }}"
+  loop: "{{ users_username }}"
+
+- name: Copy sudoers_ansible
+  ansible.builtin.template:
+    src: "sudoers_{{ item.name }}"
+    dest: "/etc/sudoers.d/{{ item.name }}"
+    owner: root
+    group: root
+    mode: "0440"
+  loop: "{{ users_username }}"

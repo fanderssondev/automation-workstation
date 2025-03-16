@@ -1,15 +1,16 @@
+---
 - name: Add GPG keys
   ansible.builtin.apt_key:
     url: "{{ item.key.url }}"
     state: "{{ item.key.state | default('present') }}"
-  loop: "{{ base_packages | selectattr('key', 'defined') | list }}"
+  loop: "{{ packages_packages | selectattr('key', 'defined') | list }}"
 
 - name: Add repositories
   ansible.builtin.apt_repository:
     repo: "{{ item.repository.repo }}"
     state: "{{ item.repository.state | default('present') }}"
     filename: "{{ item.repository.filename | default(omit) }}"
-  loop: "{{ base_packages | selectattr('repository', 'defined') | list }}"
+  loop: "{{ packages_packages | selectattr('repository', 'defined') | list }}"
 
 - name: Update package cache
   ansible.builtin.apt:
@@ -17,7 +18,7 @@
 
 - name: Install packages
   ansible.builtin.apt:
-    name: "{{ base_packages | map(attribute='name') | list }}"
+    name: "{{ packages_packages | map(attribute='name') | list }}"
 #
 # snap spotify
 # virtualbox ?
