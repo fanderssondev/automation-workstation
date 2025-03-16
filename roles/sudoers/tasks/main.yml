@@ -3,7 +3,7 @@
   ansible.builtin.user:
     name: "{{ item.name }}"
     system: "{{ item.system | default(omit) }}"
-  loop: "{{ users_username }}"
+  loop: "{{ sudoers_username }}"
 
 - name: Copy sudoers_ansible
   ansible.builtin.template:
@@ -12,4 +12,11 @@
     owner: root
     group: root
     mode: "0440"
-  loop: "{{ users_username }}"
+  loop: "{{ sudoers_username }}"
+
+- name: Setup cron job (ansible-pull)
+  ansible.builtin.cron:
+    user: "{{ item.name }}"
+    name: "{{ item.cron_job.name }}"
+    minute: "{{ item.cron_job.minute }}"
+  loop: "{{ sudoers_username | selectattr('cron_job', 'defined') | list }}"

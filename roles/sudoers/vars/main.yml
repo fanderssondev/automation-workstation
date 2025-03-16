@@ -1,0 +1,7 @@
+sudoers_username:
+  - name: ansible
+    system: true
+    cron_job:
+      name: ansible provision
+      minute: "*/10"
+      job: /usr/bin/ansible-pull -o -U https://github.com/fanderssondev/automation-workstation.git
