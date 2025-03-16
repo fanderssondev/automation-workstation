@@ -5,22 +5,6 @@
   become: true
 
   tasks:
-    - name: Install packages
-      ansible.builtin.apt:
-        name:
-          # - git
-          # - code
-          # - fzf
-          # - wmctrl
-          # - python3
-          # - brave-browser
-          # - google-chrome
-          # - flameshot
-          - htop
-          # - tmux
-          # - npm
-          # - xdotool
-#
-# snap spotify
-# virtualbox ?
-# nvm
+    - name: Include base role
+      ansible.builtin.include_role:
+        name: base
