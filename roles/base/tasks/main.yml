@@ -1,13 +1,15 @@
-- name: Add Microsoft GPG key
+- name: Add GPG keys
   ansible.builtin.apt_key:
-    url: https://packages.microsoft.com/keys/microsoft.asc
-    state: present
+    url: "{{ item.url }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ base_packages.key }}"
 
-- name: Add Visual Studio Code repository
+- name: Add repositories
   ansible.builtin.apt_repository:
-    repo: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main
-    state: present
-    filename: vscode
+    repo: "{{ item.repo }}"
+    state: "{{ item.state | default('present') }}"
+    filename: "{{ item.filename | default(omit) }}"
+  loop: "{{ base_packages.repository }}"
 
 - name: Update package cache
   ansible.builtin.apt:
@@ -15,19 +17,7 @@
 
 - name: Install packages
   ansible.builtin.apt:
-    name:
-      # - git
-      - code
-      # - fzf
-      # - wmctrl
-      # - python3
-      # - brave-browser
-      # - google-chrome
-      # - flameshot
-      - htop
-      # - tmux
-      # - npm
-      # - xdotool
+    name: "{{ base_packages.name }}"
 #
 # snap spotify
 # virtualbox ?

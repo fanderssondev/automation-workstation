@@ -1,13 +1,51 @@
-base_repos:
-  - git
-  - code
-  - fzf
-  - wmctrl
-  - python3
-  - brave-browser
-  - google-chrome
-  - flameshot
-  - htop
-  - tmux
-  - npm
-  - xdotool
+base_packages:
+  - name: git
+    repository:
+  - name: code
+    key:
+      url: https://packages.microsoft.com/keys/microsoft.asc
+      state: present
+    repository:
+      repo: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main
+      state: present
+      filename: vscode
+  - name: fzf
+    key:
+      url:
+    repository:
+  - name: wmctrl
+    key:
+      url:
+    repository:
+  - name: python3
+    key:
+      url:
+    repository:
+  - name: brave-browser
+    key:
+      url:
+    repository:
+  - name: google-chrome
+    key:
+      url:
+    repository:
+  - name: flameshot
+    key:
+      url:
+    repository:
+  - name: htop
+    key:
+      url:
+    repository:
+  - name: tmux
+    key:
+      url:
+    repository:
+  - name: npm
+    key:
+      url:
+    repository:
+  - name: xdotool
+    key:
+      url:
+    repository:
