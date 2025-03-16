@@ -7,7 +7,7 @@
 
 - name: Copy sudoers_ansible
   ansible.builtin.template:
-    src: "sudoers_{{ item.name }}"
+    src: sudoers_username
     dest: "/etc/sudoers.d/{{ item.name }}"
     owner: root
     group: root
