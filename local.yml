@@ -9,7 +9,7 @@
       ansible.builtin.apt:
         name:
           - git
-          - code
+          # - code
           - fzf
           - wmctrl
           - python3
