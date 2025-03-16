@@ -8,18 +8,18 @@
     - name: Install packages
       ansible.builtin.apt:
         name:
-          - git
+          # - git
           # - code
-          - fzf
-          - wmctrl
-          - python3
-          - brave-browser
-          - google-chrome
-          - flameshot
+          # - fzf
+          # - wmctrl
+          # - python3
+          # - brave-browser
+          # - google-chrome
+          # - flameshot
           - htop
-          - tmux
-          - npm
-          - xdotool
+          # - tmux
+          # - npm
+          # - xdotool
 #
 # snap spotify
 # virtualbox ?
