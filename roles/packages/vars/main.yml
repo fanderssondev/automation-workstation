@@ -1,13 +1,13 @@
 ---
 packages_packages:
   - name: git
-  - name: code
-    key:
-      url: https://packages.microsoft.com/keys/microsoft.asc
-    repository:
-      repo: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
-      state: present
-      filename: vscode
+  # - name: code
+  #   key:
+  #     url: https://packages.microsoft.com/keys/microsoft.asc
+  #   repository:
+  #     repo: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
+  #     state: present
+  #     filename: vscode
   - name: fzf
   - name: wmctrl
   - name: python3
