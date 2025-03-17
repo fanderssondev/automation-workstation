@@ -14,7 +14,7 @@
   tasks:
     - name: Include base role
       ansible.builtin.include_role:
-        name: base
+        name: packages
 
     - name: Include sudoers role
       ansible.builtin.include_role:
