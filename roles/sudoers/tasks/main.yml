@@ -16,7 +16,8 @@
 
 - name: Setup cron job (ansible-pull)
   ansible.builtin.cron:
-    user: "{{ item.name }}"
+    user: "{{ item.username }}"
     name: "{{ item.cron_job.name }}"
     minute: "{{ item.cron_job.minute }}"
+    job: "{{ item.cron_job.job }}"
   loop: "{{ sudoers_username | selectattr('cron_job', 'defined') | list }}"

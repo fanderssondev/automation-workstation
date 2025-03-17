@@ -1,5 +1,5 @@
 sudoers_username:
-  - name: ansible
+  - username: ansible
     system: true
     cron_job:
       name: ansible provision
