@@ -1,7 +1,7 @@
 ---
 - name: Create ansible user
   ansible.builtin.user:
-    name: "{{ item.name }}"
+    name: "{{ item.username }}"
     system: "{{ item.system | default(omit) }}"
   loop: "{{ sudoers_username }}"
 
